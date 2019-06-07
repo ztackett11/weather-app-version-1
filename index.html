@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en"
 
 <head>
   <meta charset="utf-8" />
@@ -8,8 +8,11 @@
   <title>Weather App | Zach Tackett</title>
 
   <link rel="icon" href="https://i2.wp.com/ztackett.com/wp-content/uploads/2018/10/cropped-bg3.jpg?fit=32%2C32&#038;ssl=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/app.css">
+
+  <script src="https://kit.fontawesome.com/8d19f8a03a.js"></script>
+
 
 </head>
 
@@ -20,7 +23,9 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead ">
         <div class="inner">
-          <h3 class="masthead-brand">Weather App</h3>
+          <h3 class="masthead-brand">
+            <i class="fas fa-cloud"></i>
+            Weather App</h3>
           <nav class="nav nav-masthead justify-content-center">
             <!-- <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="#">Features</a>
@@ -29,54 +34,63 @@
         </div>
       </header>
 
+      <section class="weather inner cover">
 
-      <section class="forecast inner cover">
-        <div class="icon sun-shower">
-  <div class="cloud"></div>
-  <div class="sun">
-    <div class="rays"></div>
-  </div>
-  <div class="rain"></div>
-</div>
+        <div class="forecast">
+          <!-- <div class="icon sun-shower">
+            <div class="cloud"></div>
+            <div class="sun">
+              <div class="rays"></div>
+            </div>
+            <div class="rain"></div>
+          </div>
 
-<div class="icon thunder-storm">
-  <div class="cloud"></div>
-  <div class="lightning">
-    <div class="bolt"></div>
-    <div class="bolt"></div>
-  </div>
-</div>
+          <div class="icon thunder-storm">
+            <div class="cloud"></div>
+            <div class="lightning">
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+            </div>
+          </div>
 
-<div class="icon cloudy">
-  <div class="cloud"></div>
-  <div class="cloud"></div>
-</div>
+          <div class="icon cloudy">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+          </div>
 
-<div class="icon flurries">
-  <div class="cloud"></div>
-  <div class="snow">
-    <div class="flake"></div>
-    <div class="flake"></div>
-  </div>
-</div>
+          <div class="icon flurries">
+            <div class="cloud"></div>
+            <div class="snow">
+              <div class="flake"></div>
+              <div class="flake"></div>
+            </div>
+          </div>
 
-<div class="icon sunny">
-  <div class="sun">
-    <div class="rays"></div>
-  </div>
-</div>
+          <div class="icon sunny">
+            <div class="sun">
+              <div class="rays"></div>
+            </div>
+          </div>
 
-<div class="icon sunny">
-  <div class="cloud"></div>
-  <div class="sun">
-    <div class="rays"></div>
-  </div>
-</div>
+          <div class="icon sunny">
+            <div class="cloud"></div>
+            <div class="sun">
+              <div class="rays"></div>
+            </div>
+          </div>
+          -->
+          <div class="icon rainy">
+            <div class="cloud"></div>
+            <div class="rain"></div>
+          </div>
 
-<div class="icon rainy">
-  <div class="cloud"></div>
-  <div class="rain"></div>
-</div>
+        </div>
+
+        <div class="info d-flex justify-content-around">
+          <div class="location p-2 bd-highlight">Flex item 1</div>
+          <div class="temp p-2 bd-highlight">℉</div>
+          <div class="desc p-2 bd-highlight">Flex item 3</div>
+        </div>
 
       </section>
 
@@ -84,19 +98,21 @@
 
         <form>
           <div class="form-group">
-            <label for="addressOrZip"><h1 class="cover-heading">Find A Forecast</h1></label>
-            <input type="text" class="form-control" id="addressOrZip" aria-describedby="emailorzip" placeholder="Address or Zip Code">
+            <label for="cityOrZip">
+              <h1 class="cover-heading">Find A Forecast</h1>
+            </label>
+            <input type="text" class="form-control" id="cityOrZip" aria-describedby="cityOrZip" placeholder="Enter City or Zip Code">
           </div>
 
-          <button type="submit" class="btn btn-lg btn-primary">Get Location</button>
-          <p class="lead">or</p>
-          <button type="button" class="btn btn-lg btn-success" onclick="getLocation()">Use My Location</button>
-          <br />
-          <br />
-          <p>Click the button to get your current location.</p>
-          <p id="demo"></p>
+          <button type="submit" class="btn btn-lg btn-primary" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get location for entered City or Zipe Code">Get Location</button>
+          <p class="lead"> or</p>
+          <button type="button" class="btn btn-lg btn-success" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get your current location." onclick="getLocation()">Use My Location</button>
         </form>
       </main>
+
+      <div id="geoError" class="alert alert-danger" style="display: none;" role="alert">
+        HTML 5 Geolocation API is not supported by this browser.
+      </div>
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
@@ -105,9 +121,12 @@
       </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
     <script type="text/javascript" src="assets/js/app.js"></script>
 
   </body>

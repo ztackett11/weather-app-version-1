@@ -43,7 +43,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  width: 100%
 }
 
 
@@ -51,11 +51,23 @@ body {
  * Header
  */
 .masthead {
-  margin-bottom: 10rem !important;
+  margin-bottom: 10rem;
+}
+
+.info {
+  font-size: 2rem;
+}
+
+.weather {
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  width: 50%;
+  border: inset gray 2px;
 }
 
 .forecast {
-  margin-bottom: 10rem !important;
+  color: #333;
+  padding-bottom: 5rem;
 }
 
 .masthead-brand {
@@ -85,14 +97,20 @@ body {
 }
 
 @media (min-width: 48em) {
-  .masthead-brand {
+  /* .masthead-brand {
     float: left;
-  }
+  } */
   .nav-masthead {
     float: right;
   }
 }
 
+
+.form-control {
+  margin: 0 auto;
+  min-width: 15%;
+  max-width: 15%;
+}
 
 /*
  * Cover
@@ -137,7 +155,7 @@ body {
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: transparent;
+  background: #333;
   border-radius: 50%;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em,
@@ -154,8 +172,9 @@ body {
   display: block;
   width: 4.5625em;
   height: 1em;
-  background: black;
+  background: #333;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
+
 }
 .cloud:nth-child(2) {
   z-index: 0;
@@ -179,7 +198,7 @@ body {
   width: 2.5em;
   height: 2.5em;
   margin: -1.25em;
-  background: black;
+  background: #333;
   border-radius: 50%;
   box-shadow: 0 0 0 0.375em #fff;
   animation: spin 12s infinite linear;
@@ -228,7 +247,7 @@ body {
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: blacklor;
+  background: #333;
 }
 
 .rain:after {

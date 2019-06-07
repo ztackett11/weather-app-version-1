@@ -3,15 +3,15 @@ let error = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }
-
-
-  else {
-    error.innerHTML = "HTML 5 Geolocation API is not supported by this browser.";
+    navigator.geolocation.getCurrentPosition(getCoordinates);
+  } else {
+    document.getElementById("geoError").style.display = "block";
   }
 }
 
-function showPosition(position) {
-  console.log(position);
+function getCoordinates(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  console.log(latitude + ' ' + longitude);
 }
