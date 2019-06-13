@@ -5,15 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Weather App | Zach Tackett</title>
+  <title>Find My Forecast | Zach Tackett</title>
 
   <link rel="icon" href="https://i2.wp.com/ztackett.com/wp-content/uploads/2018/10/cropped-bg3.jpg?fit=32%2C32&#038;ssl=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/app.css">
 
   <script src="https://kit.fontawesome.com/8d19f8a03a.js"></script>
-
-
 </head>
 
 <body>
@@ -25,7 +23,7 @@
         <div class="inner">
           <h3 class="masthead-brand">
             <i class="fas fa-cloud"></i>
-            Weather App</h3>
+            Find My Forecast</h3>
           <nav class="nav nav-masthead justify-content-center">
             <!-- <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="#">Features</a>
@@ -87,27 +85,27 @@
         </div>
 
         <div class="info d-flex justify-content-around">
-          <div class="location p-2 bd-highlight">Flex item 1</div>
-          <div class="temp p-2 bd-highlight">℉</div>
-          <div class="desc p-2 bd-highlight">Flex item 3</div>
+          <div class="p-2 bd-highlight"><i class="fas fa-map-marker-alt"></i><span class="location"> Location</span></div>
+          <div class="p-2 bd-highlight"><i class="fas fa-thermometer-half"></i><span class="temp"> ℉</span></div>
+          <div class="p-2 bd-highlight"><i class="fas fa-info"></i> <span class="description"> Weather Desc.</span></div>
         </div>
 
       </section>
 
       <main role="main" class="inner cover">
 
-        <form>
           <div class="form-group">
             <label for="cityOrZip">
-              <h1 class="cover-heading">Find A Forecast</h1>
+              <h3 class="cover-heading">Enter City, State or Zip</h3>
             </label>
-            <input type="text" class="form-control" id="cityOrZip" aria-describedby="cityOrZip" placeholder="Enter City or Zip Code">
+            <input type="text" class="form-control" id="cityOrZip" aria-describedby="cityOrZip" placeholder="ie. Gallipolis or 45631">
           </div>
 
-          <button type="submit" class="btn btn-lg btn-primary" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get location for entered City or Zipe Code">Get Location</button>
-          <p class="lead"> or</p>
-          <button type="button" class="btn btn-lg btn-success" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get your current location." onclick="getLocation()">Use My Location</button>
-        </form>
+          <button type="submit" class="btn btn-lg btn-primary" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get location for entered City or Zip Code" onclick="buildApiUrl()">Get Forecast</button>
+
+          <button type="button" class="btn btn-lg btn-success" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="Get your current location." onclick="getLocation()"><i class="fas fa-map-marker-alt"></i>
+ Use My Location</button>
+
       </main>
 
       <div id="geoError" class="alert alert-danger" style="display: none;" role="alert">
