@@ -15,38 +15,34 @@ function getCoordinates(position) {
 
   let apiURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=ab86781470fc562b610c929f9a682bf7";
 
-  getData(apiURL)
-  .then(data => dataset = data);
-
-  console.log(dataset);
+  getData(apiURL);
+  //
+  // console.log(data);
 
 }
 
+function showForecast() {
+  
+}
 
-// function getData(url) {
-//
-//   let obj;
-//
-//   fetch(url)
-//     .then(response => response.json())
-//     .then(data => dataset = data) // this is unnecessary
-//     .then(json => {
-//
-//       obj = json;
-//       console.log(json);
-//       // continue and do something here
-//     });
-//
-//   console.log(obj);
-//
+
+function getData(url) {
+  fetch(url)
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+      return json;
+      // continue and do something here
+    });
+}
+
+
+// async function getData(url) {
+//   let response = await fetch(url);
+//   // let data = await response.json()
+//   //proceed only when the second promise is resolved
+//   return response;
 // }
-
-async function getData(url) {
-  let response = await fetch(url);
-  let data = await response.json()
-  //proceed only when the second promise is resolved
-  return data;
-}
 
 
 function buildApiUrl() {
